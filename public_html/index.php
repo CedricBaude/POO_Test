@@ -67,7 +67,7 @@
 
     //}
     
-    $tank = new Warrior(20, 40, 30);
+    $tank = new Warrior(21, 41, 31);
 
     $manager = new Manager($db);
     $manager->create($tank);
