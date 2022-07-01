@@ -8,9 +8,9 @@ class Character {
     private $def;
 
     // Constructor
-    public function __construct($a = 10, $b = 0) {
-        $this->setLife($a);
-        $this->setDef($b);
+    public function __construct($life = 10, $def = 0) {
+        $this->setLife($life);
+        $this->setDef($def);
     }
 
     // Getters
@@ -32,11 +32,5 @@ class Character {
     }
 
     // Methods
-    public function describe() {
-        echo '<pre>';
-        print_r($this);
-        echo '</pre>';
-        // var_dump($this);
-    }
 
 }
