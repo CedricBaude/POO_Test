@@ -72,7 +72,20 @@
     $manager = new Manager($db);
     $manager->create($tank);
 
-    
+    $mage = new Wizard(13, 12, 10);
+
+    $manager = new Manager($db);
+    $manager->create($mage);
+
+    $bowman = new Archer(17, 20, 16);
+
+    $manager = new Manager($db);
+    $manager->create($bowman);
+
+    $manager->read($tank);
+    $manager->read($mage);
+    $manager->read($bowman);
+
 
     
     ?>

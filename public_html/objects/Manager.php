@@ -31,8 +31,34 @@ class Manager {
 
             // Secure
             $sql->bindValue(":life" , $perso->getLife(), PDO::PARAM_INT);
-            $sql->bindValue(":def" , $perso->getdef(), PDO::PARAM_INT);
+            $sql->bindValue(":def" , $perso->getDef(), PDO::PARAM_INT);
             $sql->bindValue(":sword" , $perso->getSword(), PDO::PARAM_INT);
+
+            $sql->execute();
+        }
+
+        if (get_class($perso) == "Wizard") {
+            // INSERT INTO `warrior` (`id` , `life`, `def`, `sword`) VALUES (NULL, '20', '40', '30')
+            $sql = $this->bdd->prepare("INSERT INTO `wizard` (`life`, `def`, `staff`) VALUES (:life, :def, :staff)");
+            //var_dump($sql);
+
+            // Secure
+            $sql->bindValue(":life" , $perso->getLife(), PDO::PARAM_INT);
+            $sql->bindValue(":def" , $perso->getDef(), PDO::PARAM_INT);
+            $sql->bindValue(":staff" , $perso->getStaff(), PDO::PARAM_INT);
+
+            $sql->execute();
+        }
+
+        if (get_class($perso) == "Archer") {
+            // INSERT INTO `warrior` (`id` , `life`, `def`, `sword`) VALUES (NULL, '20', '40', '30')
+            $sql = $this->bdd->prepare("INSERT INTO `archer` (`life`, `def`, `bow`) VALUES (:life, :def, :bow)");
+            //var_dump($sql);
+
+            // Secure
+            $sql->bindValue(":life" , $perso->getLife(), PDO::PARAM_INT);
+            $sql->bindValue(":def" , $perso->getDef(), PDO::PARAM_INT);
+            $sql->bindValue(":bow" , $perso->getBow(), PDO::PARAM_INT);
 
             $sql->execute();
         }
@@ -50,6 +76,7 @@ class Manager {
 
     public function read($perso) {
 
+        
         echo '<pre>';
         print_r($perso);
         echo '</pre>';
